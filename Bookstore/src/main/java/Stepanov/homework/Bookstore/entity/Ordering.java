@@ -1,0 +1,53 @@
+package Stepanov.homework.Bookstore.entity;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.annotation.PostConstruct;
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Getter
+@Setter
+@RequiredArgsConstructor
+public class Ordering {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(nullable = false)
+    private Buyer buyer;
+
+    @Transient
+    private Integer purchase_amount = 0;
+
+    @OneToMany(mappedBy = "ordering", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<OrderingDetails> orderingDetailsList;
+
+    @PrePersist
+    @PreUpdate
+    @PostLoad
+    private void postLoad() {
+        for (OrderingDetails orderingDetails : orderingDetailsList) {
+          this.purchase_amount += orderingDetails.getBook().getPrice() * orderingDetails.getQuantity();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Ordering{" +
+                "id=" + id +
+                ", buyer_id=" + buyer.getId() +
+                ", purchase_amount=" + purchase_amount +
+                ", orderingDetailsList=" + orderingDetailsList +
+                '}';
+    }
+}

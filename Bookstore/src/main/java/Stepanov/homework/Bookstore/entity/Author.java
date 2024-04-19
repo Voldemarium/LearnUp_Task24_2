@@ -1,9 +1,6 @@
 package Stepanov.homework.Bookstore.entity;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,8 @@ import javax.persistence.*;
 @Setter
 @ToString
 @RequiredArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class Author {
 
     @Id

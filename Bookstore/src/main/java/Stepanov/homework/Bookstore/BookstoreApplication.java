@@ -33,26 +33,35 @@ public class BookstoreApplication {
 
         Author author1 = new Author("Petrov", "Ivan", "Ivanovich");
         Author author2 = new Author("Ivanov", "Ivan", "Petrovich");
-        authorService.createAuthor(author1);
-        authorService.createAuthor(author2);
+//        authorService.createAuthor(author1);
+//        authorService.createAuthor(author2);
 
         Book book1 = new Book("Summer", author1, 2002, 220, 600);
         Book book2 = new Book("Spring", author1, 2004, 200, 800);
         Book book3 = new Book("Winter", author2, 2006, 180, 800);
         Book book4 = new Book("Autumn", author2, 2005, 270, 1000);
-        bookService.createBook(book1);
-        bookService.createBook(book2);
-        bookService.createBook(book3);
-        bookService.createBook(book4);
+//        bookService.createBook(book1);
+//        bookService.createBook(book2);
+//        bookService.createBook(book3);
+//        bookService.createBook(book4);
 
-        bookWarehouseService.createBookWarehouse(new BookWarehouse(book1, 4));
-        bookWarehouseService.createBookWarehouse(new BookWarehouse(book2, 3));
-        bookWarehouseService.createBookWarehouse(new BookWarehouse(book3, 5));
-        bookWarehouseService.createBookWarehouse(new BookWarehouse(book4, 3));
+        BookWarehouse bookWarehouse1 = new BookWarehouse(book1, 4);
+        BookWarehouse bookWarehouse2 = new BookWarehouse(book2, 3);
+        BookWarehouse bookWarehouse3 = new BookWarehouse(book3, 5);
+        BookWarehouse bookWarehouse4 = new BookWarehouse(book4, 3);
 
-        buyerService.createBuyer(new Buyer("Kozlov", "Vlad", "Ivanovich", LocalDate.of(1999, 1, 1)));
-        buyerService.createBuyer(new Buyer("Maslov", "Vova", "Petrovich", LocalDate.of(1994, 5, 4)));
+//        bookWarehouseService.createBookWarehouse(bookWarehouse1);
+//        bookWarehouseService.createBookWarehouse(bookWarehouse2);
+//        bookWarehouseService.createBookWarehouse(bookWarehouse3);
+//        bookWarehouseService.createBookWarehouse(bookWarehouse4);
 
+       Buyer buyer1 = new Buyer("Kozlov", "Vlad", "Ivanovich",
+                LocalDate.of(1999, 1, 1));
+       Buyer buyer2 = new Buyer("Maslov", "Vova", "Petrovich",
+                LocalDate.of(1994, 5, 4));
+
+//        buyerService.createBuyer(buyer1);
+//        buyerService.createBuyer(buyer2);
 
         Ordering ordering1 = new Ordering();
         ordering1.setBuyer(buyerService.getBuyerById(1L));
@@ -68,7 +77,7 @@ public class BookstoreApplication {
         ordering1.setOrderingDetailsList(List.of(orderingDetails1_1, orderingDetails1_2));
  //       log.info("Order1: {}", ordering1);
 
-   // УЖАЛЕНИЕ СТАРЫХ И СОЗДАНИЕ НОВЫХ ОРДЕРОВ
+   // УДАЛЕНИЕ СТАРЫХ И СОЗДАНИЕ НОВЫХ ОРДЕРОВ
 //        orderService.deleteOrders();
 //        orderService.createOrdering(ordering1);
 
@@ -83,5 +92,6 @@ public class BookstoreApplication {
 
 //        log.info("OrderDetailList: {}", orderingDetailsService.getOrderingDetails());
 
+//        log.info("Count Books By Authors: {}", bookService.getCountBooksByAuthorsJPQL());
     }
 }

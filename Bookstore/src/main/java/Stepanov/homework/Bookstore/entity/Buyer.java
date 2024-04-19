@@ -1,9 +1,6 @@
 package Stepanov.homework.Bookstore.entity;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,6 +10,8 @@ import java.time.LocalDate;
 @Setter
 @ToString
 @RequiredArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class Buyer {
 
     @Id

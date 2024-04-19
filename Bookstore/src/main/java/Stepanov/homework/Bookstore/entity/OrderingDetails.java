@@ -10,6 +10,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class OrderingDetails {
 
     @Id

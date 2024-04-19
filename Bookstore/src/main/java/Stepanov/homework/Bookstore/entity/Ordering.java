@@ -1,9 +1,6 @@
 package Stepanov.homework.Bookstore.entity;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -15,6 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@EqualsAndHashCode(exclude = {"orderingDetailsList"})
 public class Ordering {
 
     @Id
@@ -39,6 +37,12 @@ public class Ordering {
         for (OrderingDetails orderingDetails : orderingDetailsList) {
           this.purchase_amount += orderingDetails.getBook().getPrice() * orderingDetails.getQuantity();
         }
+    }
+
+    public Ordering(Long id, Buyer buyer, Integer purchase_amount) {
+        this.id = id;
+        this.buyer = buyer;
+        this.purchase_amount = purchase_amount;
     }
 
     @Override

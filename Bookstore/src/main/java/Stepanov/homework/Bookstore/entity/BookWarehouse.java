@@ -1,9 +1,6 @@
 package Stepanov.homework.Bookstore.entity;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,6 +8,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class BookWarehouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

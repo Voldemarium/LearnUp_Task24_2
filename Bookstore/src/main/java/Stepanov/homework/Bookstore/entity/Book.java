@@ -1,9 +1,6 @@
 package Stepanov.homework.Bookstore.entity;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -14,6 +11,8 @@ import java.io.Serializable;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class Book implements Serializable {
 
     @Id

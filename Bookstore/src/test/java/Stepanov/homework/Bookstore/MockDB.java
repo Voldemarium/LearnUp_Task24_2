@@ -1,10 +1,12 @@
 package Stepanov.homework.Bookstore;
 
 import Stepanov.homework.Bookstore.entity.*;
+import lombok.Getter;
 
 import java.time.LocalDate;
 import java.util.HashMap;
 
+@Getter
 public class MockDB {
     HashMap<Long, Author> authors = new HashMap<>();
     HashMap<Long, Book> books = new HashMap<>();
